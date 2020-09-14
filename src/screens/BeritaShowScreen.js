@@ -1,0 +1,54 @@
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import { WebView } from "react-native-webview";
+import HTML from "react-native-render-html";
+import yelp from "../api/yelp";
+import infomasjid from "../api/infomasjid";
+
+const BeritaShowScreen = ({ navigation }) => {
+  const [result, setResult] = useState(null);
+  const id = navigation.getParam("id");
+
+  const getResult = async (id) => {
+    const response = await infomasjid.get(`/berita/${id}`);
+    setResult(response.data);
+  };
+  useEffect(() => {
+    getResult(id);
+  }, []);
+  if (!result) {
+    return null;
+  }
+  return (
+    <View style={style.container}>
+      <Text style={style.header}>{result.judul} </Text>
+      <WebView
+        originWhitelist={["*"]}
+        source={{
+          html:
+            '<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head><body>' +
+            result.deskripsi +
+            "</body></html>",
+        }}
+      />
+    </View>
+  );
+};
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  image: {
+    width: 250,
+    height: 150,
+    borderRadius: 4,
+    marginBottom: 5,
+  },
+});
+
+export default BeritaShowScreen;
