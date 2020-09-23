@@ -11,26 +11,31 @@ const BeritaScreen = () => {
   const [searchBeritaApi, resultsBerita, errorMessage] = useResultsBerita();
 
   const filterResultsByCategory = (category) => {
+    console.log(resultsBerita);
     return resultsBerita.filter((resultBerita) => {
       return resultBerita.kategori_berita === category;
     });
   };
 
   return (
-    <>
-      <SearchBar
-        term={term}
-        onTermChange={setTerm}
-        onTermSubmit={() => searchBeritaApi(term)}
-      ></SearchBar>
+    <View style={styles.container}>
+      <View style={{ backgroundColor: '#7BAF90' }}>
+        <SearchBar
+          term={term}
+          onTermChange={setTerm}
+          onTermSubmit={() => searchBeritaApi(term)}
+        ></SearchBar>
+      </View>
+
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>{Constants.installationId}</Text>
+      {/*<Text>{Constants.installationId} </Text> */}
       <ScrollView>
         <ResultsList
           results={filterResultsByCategory("Pengumuman")}
           title="Pengumuman"
         ></ResultsList>
-        <ResultsList
+        {/* 
+       <ResultsList
           results={filterResultsByCategory("Perencanaan Pembangunan")}
           title="Perencanaan Pembangunan"
         ></ResultsList>
@@ -42,14 +47,16 @@ const BeritaScreen = () => {
           results={filterResultsByCategory("Laporan Keuangan")}
           title="Laporan Keuangan"
         ></ResultsList>
+       */}
       </ScrollView>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#E7EAED'
   },
 });
 

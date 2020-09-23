@@ -38,7 +38,7 @@ const MasjidResultsList = ({ title, results, navigation }) => {
 const styles = StyleSheet.create({
   title: {
     marginLeft: 15,
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
   },
   container: {

@@ -15,9 +15,9 @@ const ResultsList = ({ title, results, navigation }) => {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+
       <FlatList
-        horizontal
+        horizontal={false}
         showsHorizontalScrollIndicator={false}
         data={results}
         keyExtractor={(result) => result.berita_id.toString()}
@@ -42,9 +42,15 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     fontSize: 18,
     fontWeight: "bold",
+    marginBottom: 5
   },
   container: {
-    marginBottom: 15,
+    marginHorizontal: 15,
+    paddingVertical: 5,
+    borderRadius: 10,
+    backgroundColor: "#F4F6F9",
+    height: 320
+
   },
 });
 
