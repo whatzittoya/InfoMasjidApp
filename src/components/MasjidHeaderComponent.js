@@ -5,32 +5,21 @@ import { View, Text, StyleSheet, Image } from "react-native";
 
 const MasjidHeaderComponent = ({ title, results }) => {
 
-    console.log('oke');
+    if (!results) {
+        return null;
+    }
+
 
 
     return (
-        <>
 
-            {
+        <View style={styles.container} key={results.masjid_id}>
+            <Text style={styles.setup}>ubah</Text>
+            <Image style={styles.imagestyle} source={{ uri: "http://infomasjid.my.id/" + results.foto }} ></Image>
+            <Text style={styles.namaStyle}> {results.nama}</Text>
+            <Text style={styles.alamatStyle}> {results.alamat}</Text>
+        </View>
 
-                /* 
-                <Text> {results.length} </Text>
-                <Text> {resultsMasjid.length} </Text>
-                 <Text> {results.nama} </Text>
-                results.map((postData, idx) => {
-    
-                    return (
-                        <View style={styles.container} key={postData.masjid_id}>
-                            <Text style={styles.setup}>ubah</Text>
-                            <Image style={styles.imagestyle} source={{ uri: "http://infomasjid.my.id/" + postData.foto }} ></Image>
-                            <Text style={styles.namaStyle}> {postData.nama}</Text>
-                            <Text style={styles.alamatStyle}> {postData.alamat}</Text>
-                        </View>
-                    );
-                })
-                */
-            }
-        </>
     );
 };
 

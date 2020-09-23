@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 import { withNavigation } from "react-navigation";
 import ResultsDetail from "./ResultsDetail";
@@ -14,11 +14,9 @@ const ResultsList = ({ title, results, navigation }) => {
     return null;
   }
   return (
-    <View style={styles.container}>
+    <>
 
       <FlatList
-        horizontal={false}
-        showsHorizontalScrollIndicator={false}
         data={results}
         keyExtractor={(result) => result.berita_id.toString()}
         renderItem={({ item }) => {
@@ -31,9 +29,10 @@ const ResultsList = ({ title, results, navigation }) => {
               <ResultsDetail result={item}></ResultsDetail>
             </TouchableOpacity>
           );
-        }}
+        }
+        }
       ></FlatList>
-    </View>
+    </>
   );
 };
 

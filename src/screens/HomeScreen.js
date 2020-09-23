@@ -36,15 +36,15 @@ const HomeScreen = () => {
                 <CategoryComp title="Program" />
             </View>
 
-            {  /* <ScrollView>
-                <View style={styles.beritaStyle}>
-                    <ResultsList
-                        results={resultsBerita}
-                        title="Pengumuman"
-                    ></ResultsList>
-                </View>
+            <ScrollView keyboardShouldPersistTaps='always' >
+
+                <ResultsList
+                    results={resultsBerita}
+                    title="Pengumuman"
+                ></ResultsList>
+
             </ScrollView>
-         */ }
+
 
         </View >
     );
