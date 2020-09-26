@@ -11,7 +11,9 @@ import useResultsBerita from "../hooks/useResultsBerita";
 
 
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
+
+    console.log(navigation.getParam('id'));
 
     const [searchMasjidApi, resultsMasjid, errorMessage] = MasjidHook();
     const [searchBeritaApi, resultsBerita, errorBeritaessage] = useResultsBerita();
@@ -20,7 +22,7 @@ const HomeScreen = () => {
 
 
     const filterResultsByCategory = (category) => {
-        console.log(resultsBerita);
+
         return resultsBerita.filter((resultBerita) => {
             return resultBerita.kategori_berita === category;
         });

@@ -2,20 +2,25 @@ import { createStackNavigator } from "react-navigation-stack";
 import BeritaShowScreen from "../screens/BeritaShowScreen";
 import MasjidShowScreen from "../screens/MasjidShowScreen";
 import BottomTab from "../navigation/BottomTab";
+import WelcomeScreen from "../screens/WelcomeScreen";
+import HomePageScreen from "../screens/HomeScreen";
+import TestScreen from "../screens/TestScreen";
 
-const Navigator = createStackNavigator(
+const navigator = createStackNavigator(
   {
     Home: BottomTab,
     BeritaShow: BeritaShowScreen,
     MasjidShow: MasjidShowScreen,
+    HomePage: HomePageScreen,
+    Welcome: WelcomeScreen,
+    TestPage: TestScreen
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Welcome",
     defaultNavigationOptions: {
-      title: "Info Masjid",
-      cardStyle: { backgroundColor: "#fff" },
+      title: "Info Masjid"
     },
   }
 );
 
-export default Navigator;
+export default navigator;

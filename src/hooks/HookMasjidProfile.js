@@ -22,7 +22,7 @@ export default () => {
 
   const getResult = async (id) => {
     const response = await infomasjid.get(`/masjid/${id}`);
-    console.log(response.data);
+    //  console.log(response.data);
     setResultsMasjid(response.data);
   };
 
