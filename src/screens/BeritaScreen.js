@@ -4,14 +4,10 @@ import SearchBar from "../components/SearchBar";
 import useResultsBerita from "../hooks/useResultsBerita";
 import ResultsList from "../components/ResultsList";
 
-import Constants from "expo-constants";
-
 const BeritaScreen = () => {
   const [term, setTerm] = useState("");
   const [searchBeritaApi, resultsBerita, errorMessage] = useResultsBerita();
-
   const filterResultsByCategory = (category) => {
-    console.log(resultsBerita);
     return resultsBerita.filter((resultBerita) => {
       return resultBerita.kategori_berita === category;
     });
@@ -19,7 +15,7 @@ const BeritaScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={{ backgroundColor: '#7BAF90' }}>
+      <View style={{ backgroundColor: "#7BAF90" }}>
         <SearchBar
           term={term}
           onTermChange={setTerm}
@@ -56,7 +52,7 @@ const BeritaScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E7EAED'
+    backgroundColor: "#E7EAED",
   },
 });
 

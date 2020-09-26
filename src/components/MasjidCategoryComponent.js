@@ -1,56 +1,60 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { AntDesign } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const MasjidCategoryComponent = ({ title }) => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("MasjidShow", { id: item.masjid_id })
+        }
+      >
+        {title === "Pengumuman" ? (
+          <AntDesign name="notification" style={styles.iconPickStyle} />
+        ) : title === "Keuangan" ? (
+          <MaterialCommunityIcons name="finance" style={styles.iconStyle} />
+        ) : title === "Pembangunan" ? (
+          <MaterialCommunityIcons name="floor-plan" style={styles.iconStyle} />
+        ) : title === "Program" ? (
+          <MaterialCommunityIcons
+            name="progress-check"
+            style={styles.iconStyle}
+          />
+        ) : null}
+      </TouchableOpacity>
 
-
-    return (
-        <View style={styles.container}>
-            {
-                (title === "Pengumuman") ?
-                    <AntDesign name="notification" color="white" size={20} style={styles.iconPickStyle} /> :
-                    (title === "Keuangan") ?
-                        <MaterialCommunityIcons name="finance" color="#717171" size={20} style={styles.iconStyle} /> :
-                        (title === "Pembangunan") ?
-                            < MaterialCommunityIcons name="floor-plan" color="#717171" size={20} style={styles.iconStyle} /> :
-                            (title === "Program") ?
-                                < MaterialCommunityIcons name="progress-check" color="#717171" size={20} style={styles.iconStyle} /> : null
-
-            }
-
-
-            <Text style={styles.addStyles}>{title}</Text>
-        </View>
-
-    );
+      <Text style={styles.addStyles}>{title}</Text>
+    </View>
+  );
 };
 
-
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    iconPickStyle: {
-        borderWidth: 1,
-        borderRadius: 10,
-        padding: 5,
-        alignSelf: "center",
-        backgroundColor: "#3F4448"
-
-    },
-    iconStyle: {
-        borderWidth: 1,
-        borderRadius: 10,
-        padding: 5,
-        alignSelf: "center"
-    },
-    addStyles: {
-        fontSize: 10,
-        alignSelf: "center"
-    }
-
+  container: {
+    flex: 1,
+  },
+  iconPickStyle: {
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 5,
+    alignSelf: "center",
+    backgroundColor: "#3F4448",
+    color: "#fff",
+    fontSize: 20,
+  },
+  iconStyle: {
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 5,
+    alignSelf: "center",
+    fontSize: 20,
+    color: "#717171",
+  },
+  addStyles: {
+    fontSize: 10,
+    alignSelf: "center",
+  },
 });
 
 export default MasjidCategoryComponent;
