@@ -1,34 +1,25 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
+import { ListStyles } from "../styles/global";
 
 const MasjidResultsDetail = ({ result }) => {
   return (
     <View style={style.container}>
-      <Image
-        style={style.image}
-        source={{ uri: "http://infomasjid.my.id/" + result.foto }}
-      ></Image>
-      <Text style={style.name}>{result.nama}</Text>
-      <Text>{result.alamat}</Text>
+      <Image style={style.image} source={{ uri: result.image_url }}></Image>
+      <View style={style.subcontainer}>
+        <Text style={style.name}>{result.nama}</Text>
+        <Text style={style.detail}>{result.alamat}</Text>
+      </View>
     </View>
   );
 };
 
 const style = StyleSheet.create({
-  container: {
-    marginLeft: 15,
-    width: 260,
-  },
-  image: {
-    width: 250,
-    height: 150,
-    borderRadius: 4,
-    marginBottom: 5,
-  },
-  name: {
-    fontWeight: "bold",
-    fontSize: 14,
-  },
+  container: ListStyles.container,
+  subcontainer: ListStyles.subcontainer,
+  image: ListStyles.image,
+  name: ListStyles.name,
+  detail: ListStyles.detail,
 });
 
 export default MasjidResultsDetail;

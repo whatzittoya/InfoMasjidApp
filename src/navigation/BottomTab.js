@@ -7,7 +7,9 @@ import MasjidScreen from "../screens/MasjidScreen";
 import FollowScreen from "../screens/FollowScreen";
 import HomeScreen from "../screens/HomeScreen";
 import FavouriteScreen from "../screens/FavouriteScreen";
+import TestScreen from "../screens/TestScreen";
 import { Feather, FontAwesome5, Entypo } from "@expo/vector-icons";
+import { colorTheme } from "../styles/global";
 
 const styles = StyleSheet.create({
   tabBarStyle: {
@@ -34,7 +36,6 @@ const BottomTab = createBottomTabNavigator(
     },
     Masjid: {
       screen: MasjidScreen,
-
       navigationOptions: {
         tabBarIcon: ({ focused, tintColor }) => {
           return (
@@ -47,21 +48,22 @@ const BottomTab = createBottomTabNavigator(
         },
       },
     },
-    Favourites: {
-      screen: FavouriteScreen,
+    // Favourites: {
+    //   screen: BeritaScreen,
 
-      navigationOptions: {
-        tabBarIcon: ({ focused, tintColor }) => {
-          return (
-            <Feather name="star" color={tintColor} style={styles.iconStyle} />
-          );
-        },
-      },
-    },
+    //   navigationOptions: {
+    //     tabBarIcon: ({ focused, tintColor }) => {
+    //       return (
+    //         <Feather name="star" color={tintColor} style={styles.iconStyle} />
+    //       );
+    //     },
+    //   },
+    // },
     Folowing: {
-      screen: FollowScreen,
+      screen: BeritaScreen,
 
       navigationOptions: {
+        title: "test",
         tabBarIcon: ({ focused, tintColor }) => {
           return (
             <Entypo name="news" color={tintColor} style={styles.iconStyle} />
@@ -74,6 +76,7 @@ const BottomTab = createBottomTabNavigator(
     tabBarOptions: {
       showLabel: false,
       style: styles.tabBarStyle,
+      activeTintColor: colorTheme.pDark,
     },
   }
 );

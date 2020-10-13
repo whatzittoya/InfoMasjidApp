@@ -19,10 +19,7 @@ const MasjidShowScreen = ({ navigation }) => {
   return (
     <View style={style.container}>
       <Text style={style.header}>{result.nama} </Text>
-      <Image
-        style={style.image}
-        source={{ uri: "http://infomasjid.my.id/" + result.foto }}
-      ></Image>
+      <Image style={style.image} source={{ uri: result.image_url }}></Image>
       <Text style={style.header1}>Alamat </Text>
       <Text style={style.text}>{result.alamat} </Text>
       <Text style={style.header1}>Deskripsi </Text>

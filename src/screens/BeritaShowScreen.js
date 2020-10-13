@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
 import { WebView } from "react-native-webview";
-import HTML from "react-native-render-html";
-import yelp from "../api/yelp";
+
 import infomasjid from "../api/infomasjid";
 
 const BeritaShowScreen = ({ navigation }) => {

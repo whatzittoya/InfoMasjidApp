@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const MasjidCategoryComponent = ({ title }) => {
+const BeritaCategory = ({ title, selected, clicked }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate("MasjidShow", { id: item.masjid_id })
-        }
-      >
+      <TouchableOpacity onPress={() => clicked()}>
         {title === "Pengumuman" ? (
-          <AntDesign name="notification" style={styles.iconPickStyle} />
+          <AntDesign
+            name="notification"
+            style={selected ? styles.iconPickStyle : styles.iconStyle}
+          />
         ) : title === "Keuangan" ? (
-          <MaterialCommunityIcons name="finance" style={styles.iconStyle} />
+          <MaterialCommunityIcons
+            name="finance"
+            style={selected ? styles.iconPickStyle : styles.iconStyle}
+          />
         ) : title === "Pembangunan" ? (
-          <MaterialCommunityIcons name="floor-plan" style={styles.iconStyle} />
+          <MaterialCommunityIcons
+            name="floor-plan"
+            style={selected ? styles.iconPickStyle : styles.iconStyle}
+          />
         ) : title === "Program" ? (
           <MaterialCommunityIcons
             name="progress-check"
-            style={styles.iconStyle}
+            style={selected ? styles.iconPickStyle : styles.iconStyle}
+          />
+        ) : title === "Semua" ? (
+          <Feather
+            name="list"
+            style={selected ? styles.iconPickStyle : styles.iconStyle}
           />
         ) : null}
       </TouchableOpacity>
@@ -57,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MasjidCategoryComponent;
+export default BeritaCategory;
