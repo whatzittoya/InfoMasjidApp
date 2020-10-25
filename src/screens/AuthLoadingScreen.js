@@ -15,7 +15,7 @@ import Constants from "expo-constants";
 import { colorTheme } from "../styles/global";
 const AuthLoadingScreen = ({ navigation }) => {
   const [selectedMasjid, setSelectedMasjid] = useState();
-  const { getBerita, setSelectedCategory } = useContext(BeritaContext);
+  const { getBerita, setSelectedCategory,setBeritaProfile } = useContext(BeritaContext);
   const { state: stateUser, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const { getMasjid, getMasjidProfile } = useContext(MasjidContext);

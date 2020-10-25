@@ -7,13 +7,7 @@ const beritaReducer = (state, action) => {
       return { ...state, berita_all: action.payload };
     case "set_category":
       return { ...state, category: action.payload };
-    case "get_berita_profile":
-      //set API to load masjid profile
-      const berita_profile = state.berita_all.filter((resultBerita) => {
-        return resultBerita.masjid_id === 13;
-      });
-
-      return { ...state, berita_profile: berita_profile };
+   
     case "set_berita_profile":
       //set API to load masjid profile
 
@@ -36,12 +30,7 @@ const getBerita = (dispatch) => {
     if (callback) callback();
   };
 };
-const getBeritaProfile = (dispatch) => {
-  return (callback) => {
-    dispatch({ type: "get_berita_profile", payload: "" });
-    if (callback) callback();
-  };
-};
+
 const setBeritaProfile = (dispatch) => {
   return (id, callback) => {
     dispatch({ type: "set_berita_profile", payload: id });
@@ -75,7 +64,6 @@ export const { Context, Provider } = createDataContext(
     getBerita,
     searchBerita,
     setSelectedCategory,
-    getBeritaProfile,
     setBeritaProfile,
   },
   { berita_all: [], berita_profile: [], category: {} }

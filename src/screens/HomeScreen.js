@@ -26,8 +26,8 @@ const CutomHeaderScreen = ({ navigation }) => {
   const {
     state,
     getBerita,
-    getBeritaProfile,
     setSelectedCategory,
+    setBeritaProfile
   } = useContext(BeritaContext);
   const { state: stateMasjid, getMasjid, getMasjidProfile } = useContext(
     MasjidContext
@@ -40,12 +40,7 @@ const CutomHeaderScreen = ({ navigation }) => {
     getMasjid();
 
     setSelectedCategory({ name: "Semua", value: "All" });
-    console.log("------");
-    console.log(
-      stateMasjid.masjid_profile.find((item) => {
-        return item.selected;
-      })
-    );
+   setBeritaProfile(selectedMasjid().masjid_id)
   }, []);
 
   const filterBerita = (category) => {
