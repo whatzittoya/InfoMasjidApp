@@ -21,6 +21,7 @@ const BeritaShowScreen = ({ navigation }) => {
   return (
     <View style={style.container}>
       <Text style={style.header}>{result.judul} </Text>
+      <Text style={style.subtitle}>Tanggal {result.tgl_berita} oleh {result.masjids.nama}</Text>
       <WebView
         originWhitelist={["*"]}
         source={{
@@ -41,6 +42,11 @@ const style = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  subtitle: {
+    marginTop: 5,
+    fontSize: 10,
+    fontStyle: "italic"
   },
   image: {
     width: 250,

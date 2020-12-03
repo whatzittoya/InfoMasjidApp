@@ -13,7 +13,6 @@ const ResultsList = ({ title, results, navigation }) => {
   if (!results.length) {
     return null;
   }
-  console.log(results);
   return (
     <>
       <FlatList

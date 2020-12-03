@@ -2,7 +2,7 @@
   "expo": {
     "name": "InfoMasjid",
     "slug": "InfoMasjid",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -13,17 +13,19 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "ios": {
-      "bundleIdentifier": "com.yourcompany.yourappname",
+      "bundleIdentifier": "com.riausoftwarehouse.infomasjid",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.yourcompany.yourappname",
-      "versionCode": 1
+      "package": "com.riausoftwarehouse.infomasjid",
+      "versionCode": 4
     }
   }
 }

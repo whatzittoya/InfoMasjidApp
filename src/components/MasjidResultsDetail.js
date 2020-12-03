@@ -5,7 +5,7 @@ import { ListStyles } from "../styles/global";
 const MasjidResultsDetail = ({ result }) => {
   return (
     <View style={style.container}>
-      <Image style={style.image} source={{ uri: result.image_url }}></Image>
+      <Image style={style.image} source={(result.foto == null) ? require('../../assets/logo.png') : { uri: (result.image_url) }}></Image>
       <View style={style.subcontainer}>
         <Text style={style.name}>{result.nama}</Text>
         <Text style={style.detail}>{result.alamat}</Text>

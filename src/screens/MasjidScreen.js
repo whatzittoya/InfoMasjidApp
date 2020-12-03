@@ -17,6 +17,7 @@ const MasjidScreen = ({ navigation }) => {
     getMasjid(() => {
       setLoading(false);
     });
+    console.log(state);
   }, []);
   return (
     <View style={{ flex: 1 }}>

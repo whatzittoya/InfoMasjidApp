@@ -40,7 +40,7 @@ const CutomHeaderScreen = ({ navigation }) => {
     getMasjid();
 
     setSelectedCategory({ name: "Semua", value: "All" });
-   setBeritaProfile(selectedMasjid().masjid_id)
+    setBeritaProfile(selectedMasjid().masjid_id)
   }, []);
 
   const filterBerita = (category) => {
@@ -106,49 +106,61 @@ const CutomHeaderScreen = ({ navigation }) => {
     return null;
   }
   return (
-    <StickyParallaxHeader
+
+    < StickyParallaxHeader
       headerType="TabbedHeader"
-      backgroundImage={{
-        uri: selectedMasjid().image_url,
-      }}
+      backgroundImage={
+        selectedMasjid().foto == null ? require('../../assets/logo.png') :
+          {
+            uri: selectedMasjid().image_url,
+          }
+      }
       backgroundColor={colorTheme.primary}
       headerHeight={80}
       header={renderHeader}
       title={selectedMasjid().nama + "\n" + selectedMasjid().alamat}
       titleStyle={styles.titleStyle}
       foregroundImage={{}}
-      tabs={[
-        {
-          title: "Semua",
-          content: renderContent("Semua"),
-        },
-        {
-          title: "Pengumuman",
-          content: renderContent("Pengumuman"),
-        },
-        {
-          title: "Laporan Keuangan",
-          content: renderContent("Laporan Keuangan"),
-        },
-        {
-          title: "Perencanaan Pembangunan",
-          content: renderContent("Perencanaan Pembangunan"),
-        },
-        {
-          title: "Program Masjid",
-          content: renderContent("Program Masjid"),
-        },
-      ]}
+      tabs={
+        [
+          {
+            title: "Semua",
+            content: renderContent("Semua"),
+          },
+          {
+            title: "Pengumuman",
+            content: renderContent("Pengumuman"),
+          },
+          {
+            title: "Laporan Keuangan",
+            content: renderContent("Laporan Keuangan"),
+          },
+          {
+            title: "Perencanaan Pembangunan",
+            content: renderContent("Perencanaan Pembangunan"),
+          },
+          {
+            title: "Program Masjid",
+            content: renderContent("Program Masjid"),
+          },
+        ]}
       tabTextContainerStyle={styles.tabTextContainerStyle}
       tabTextContainerActiveStyle={styles.tabTextContainerActiveStyle}
       tabTextStyle={styles.tabTextStyle}
       tabTextActiveStyle={styles.tabTextActiveStyle}
       tabWrapperStyle={styles.tabWrapperStyle}
       tabsContainerStyle={styles.tabsContainerStyle}
-      scrollEvent={event(
-        [{ nativeEvent: { contentOffset: { y: scrollY.y } } }],
-        { useNativeDriver: false }
-      )}
+      scrollEvent={
+        event(
+          [{
+            nativeEvent: {
+              contentOffset: {
+                y: scrollY.y
+              }
+            }
+          }],
+          { useNativeDriver: false }
+        )}
     />
   );
 };
